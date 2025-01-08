@@ -1,0 +1,52 @@
+#cloud-config
+autoinstall:
+  version: 1
+  apt:
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches: [amd64, i386]
+      uri: http://be.archive.ubuntu.com/ubuntu
+    - arches: [default]
+      uri: http://ports.ubuntu.com/ubuntu-ports
+  updates: all
+  packages:
+    - ca-certificates
+    - apt-transport-https
+    - open-vm-tools
+    - util-linux-extra
+    - rsync
+    - curl
+    - wget
+    - net-tools
+    - vim
+    - zip
+    - unzip
+    - lsb-release
+    - software-properties-common
+    - python3
+    - python3-pip
+  locale: fr_FR.UTF-8
+  keyboard:
+    layout: be
+  timezone: Europe/Brussels
+  ssh:
+    allow-pw: true
+    install-server: true
+  user-data:
+    disable_root: false
+    hostname: TPL-UBUNTU-2404
+    users:
+      - name: administrator
+        lock_passwd: false
+        passwd: "$5$0jNn1eSVhevXah3s$8p4zpW2qFrey8GP3NSmzE8.UBdVbAvNudmhLo8o5fI7"
+        sudo: "ALL=(ALL) NOPASSWD:ALL"
+        shell: /bin/bash
+      - name : ansible
+        gecos: Ansible User
+        groups: [users, admin]
+        sudo: "ALL=(ALL) NOPASSWD:ALL"
+        shell: /bin/bash
+        lock_passwd: true
+        ssh_authorized_keys:
+          - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAVqlcxB9K5W76E5arZLD8MpMrtm3fKGFY7NPT/Jmqgm SSH-Test-Key"
