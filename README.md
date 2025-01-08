@@ -8,5 +8,5 @@ Template files for an Ubuntu Server 24.04 via Packer, inside a DevContainer, for
 ![alt text](https://i.imgur.com/Im9zZr2.png)
 #
 
-More informations on my personnal blog, here ➡️ _To_add URL_
+More informations on my personnal blog, here ➡️ https://blog.tips4tech.fr/packer-vsphere-et-ubuntuserver/
 #
