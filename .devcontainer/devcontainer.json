@@ -1,0 +1,31 @@
+{
+    "name": "Packer vSphere",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "PACKER_VERSION": "1.11.2"
+        }
+    },
+    "remoteUser": "vscode",
+    "mounts": [
+    "type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,readonly"
+    ],
+        "customizations": {
+            "vscode": {
+                "extensions": [
+                    "bierner.markdown-preview-github-styles",
+                    "DavidAnson.vscode-markdownlint",
+                    "donjayamanne.githistory",
+                    "eamodio.gitlens",
+                    "esbenp.prettier-vscode",
+                    "mhutchie.git-graph",
+                    "oderwat.indent-rainbow",
+                    "samuelcolvin.jinjahtml",
+                    "tamasfe.even-better-toml",
+                    "yzhang.markdown-all-in-one",
+                    "ms-azuretools.vscode-docker",
+                    "hashicorp.hcl"
+                ]
+            }
+        }
+    }
